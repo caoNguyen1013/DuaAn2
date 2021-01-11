@@ -1,0 +1,176 @@
+<script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+
+
+<div class="footer">
+  <div class="footer_menu">
+    <div class="col_1">
+      <div class="title">
+        Homestay
+      </div>
+      <ul>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">Profile</a></li>
+        <li><a href="#">Account</a></li>
+      </ul>
+    </div>
+    <div class="col_2">
+      <div class="title">
+        Help & Support
+      </div>
+      <ul>
+        <li><a href="#">Support Center</a></li>
+        <li><a href="#">FAQ</a></li>
+        <li><a href="#">Call Center</a></li>
+        <li><a href="#">Terms & Conditions</a></li>
+      </ul>
+    </div>
+    <div class="col_3">
+      <div class="title">
+        Place
+      </div>
+      <ul>
+        <li><a href="#">Đà Nẵng</a></li>
+        <li><a href="#">Đà Lạt</a></li>
+        <li><a href="#">Hà Nội</a></li>
+        <li><a href="#">Hồ Chí Minh</a></li>
+      </ul>
+    </div>
+    <div class="col_4">
+      <div class="title">
+        Infomation
+      </div>
+      <ul>
+        <li><a href="#">Phone: 0898336695</a></li>
+        <li><a href="#">Email: homestay@gmail.com</a></li>
+        <li><a href="#">Địa chỉ: 117 Phan Tứ</a></li>
+        <li><a href="#">Fanpage: homestay2018</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="social_media">
+    <ul>
+      <li><a class="facebook" href="#"><i class="fab fa-facebook-f"></i></a></li>
+      <li><a class="twitter" href="#"><i class="fab fa-twitter"></i></a></li>
+      <li><a class="instagram" href="#"><i class="fab fa-instagram"></i></a></li>
+      <li><a class="whatsapp" href="#"><i class="fab fa-whatsapp"></i></a></li>
+    </ul>
+
+  </div>
+</div>
+</div>
+
+
+
+<!-- Bootstrap core JavaScript -->
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+
+<!-- Additional Scripts -->
+<script src="assets/js/custom.js"></script>
+<script src="assets/js/owl.js"></script>
+<script src="assets/js/slick.js"></script>
+<script src="assets/js/isotope.js"></script>
+<script src="assets/js/accordions.js"></script>
+
+<script defer src="js/jquery.flexslider.js"></script>
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/respond.min.js"></script>
+<script src="js/application.js"></script>
+<script src="js/bootstrap-tooltip.js"></script>
+<script defer src="js/jquery.fancybox.js"></script>
+
+<script defer src="assets/js/scriptsr.js"></script>
+<script type="text/javascript">
+  $(document).ready(function () {
+    menu();
+
+    $('.updateCart').click(function () {
+      var id = $(this).attr('id');
+      var soluong = parseInt($('#' + id).val());
+      if (soluong > 0) {
+        $.post(
+          './updateCart',
+          {
+            id: id,
+            soluong: soluong
+          }, function (data) {
+
+            if (data.st == 1) location.href = "gio-hang.html";
+          }
+        ), 'json';
+      }
+    });
+
+    $('.delCart').click(function () {
+      var id = $(this).attr('id');
+
+      $.post(
+        './delCart',
+        {
+          id: id
+        }, function (data) {
+
+          if (data.st == 1) location.href = "gio-hang.html";
+        }
+      ), 'json';
+
+    });
+
+
+  });
+
+  function menu() {
+    $.post(
+      './menu',
+      {
+
+      }, function (data) {
+        var classMenu = '';
+        var hash = location.pathname;
+
+        if (hash == '/') var menu = '<li><a class="active" href="/" >Home</a></li>';
+        else var menu = '<li><a  href="/">Home</a></li>';
+
+        data.forEach(function (item) {
+          var urlMenu = '/place/' + item.nameKhongDau + '.' + item._id + '.html';
+          var pathName = location.pathname;
+          pathName = pathName.split('.')[2];
+
+          menu += '<li><a  href="' + urlMenu + '" ';
+          if (urlMenu == hash || item._id == pathName) menu += 'class="active"';
+          menu += '>' + item.name + '</a></li>';
+        });
+        $('#categorymenu ul.categorymenu').html(menu);
+
+
+      }
+    );
+  }
+
+  const searchBtn = document.querySelector(".search-btn");
+  const searchOverlay = document.querySelector(".search-overlay");
+  const searchPopup = document.querySelector(".search-popup");
+
+  searchBtn.addEventListener("click", () => {
+    searchOverlay.classList.add("active");
+    searchPopup.classList.add("active");
+  })
+
+
+  searchOverlay.addEventListener("click", (event) => {
+    if (event.target == searchOverlay) {
+      searchOverlay.classList.remove("active");
+      searchPopup.classList.remove("active");
+    }
+  })
+
+</script>
+
+
+</body>
+
+</html>

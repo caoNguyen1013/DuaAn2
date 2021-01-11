@@ -1,0 +1,82 @@
+<% include ../layout/header.ejs %>
+<!-- Header End -->
+
+<div id="maincontainer">
+  <section id="product">
+    <div class="container">
+      <!--  breadcrumb -->
+      <ul class="breadcrumb">
+        <li>
+          <a href="/">Home</a>
+          <span class="divider">/</span>
+        </li>
+        <li class="active">Homestay</li>
+      </ul>
+
+
+
+      <div class="products">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="filters">
+                <ul>
+                  <li class="active">Danh Sách HomeStay</li>
+                  <% place.forEach(function(ca){ %>
+                  <li>
+                    <a href="/place/<%= ca.nameKhongDau %>.<%= ca._id%>.html"><%= ca.name%></a>
+                  </li>
+
+                  <%})%>
+                </ul>
+              </div>
+            </div>
+
+
+
+            <div class="latest-products">
+              <div class="container">
+                <div class="row">
+                  <%  product.forEach(function(pro){  %>
+                  <div class="col-md-4">
+
+                    <div class="product-item">
+                      <div class="thumbnail">
+                        <a href="/chi-tiet/<%= pro.nameKhongDau%>.<%= pro._id%>.<%= pro.placeId%>.html"><img
+                            src="upload/<%= pro.img %>" alt="" height="300" width="300"></a>
+
+                        <h4 class="cangiua"><%= pro.name %></h4>
+                        <div class="down-content">
+                          </a>
+                          <h6>$<%= pro.price %></h6>
+                          <p><%= pro.des %></p>
+                          <a href="/add-cart.<%= pro._id %>" class="">BOOK NOW
+                          </a>
+                          <ul class="stars">
+                            <li><i class="fa fa-star"></i></li>
+                            <li><i class="fa fa-star"></i></li>
+                            <li><i class="fa fa-star"></i></li>
+                            <li><i class="fa fa-star"></i></li>
+                            <li><i class="fa fa-star"></i></li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                  <% })%>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+
+
+<!-- Footer -->
+<% include ../layout/footer.ejs %>
+<!-- 

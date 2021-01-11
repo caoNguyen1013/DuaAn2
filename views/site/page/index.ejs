@@ -1,0 +1,57 @@
+<% include ../layout/header.ejs %>
+
+<!-- Latest Product-->
+
+<%   place.forEach(function(ca){ var id = 0; %>
+				
+<div class="latest-products">
+	<div class="container">
+		<div class="row">
+			
+				
+			<div class="col-md-12">
+				<div class="section-heading">
+				
+					<h3 ><span class=""> <%= ca.name%> </span><span class="text" >đi du lịch cùng bạn </span></h3>
+					<a href="/place/<%= ca.nameKhongDau %>.<%= ca._id%>.html">view all homestays <i class="fa fa-angle-right"></i></a>
+				</div>
+				<hr>
+			</div>
+			<%  product.forEach(function(pro){ if(id < 6) { if(pro.placeId == ca._id){ id ++ ; %>
+
+			<div class="col-md-4">
+			
+				<div class="product-item">
+					<a href="/chi-tiet/<%= pro.nameKhongDau%>.<%= pro._id%>.<%= pro.placeId%>.html"><img src="upload/<%= pro.img %>" alt="" height="300" width="300"></a>
+					<h4 class="cangiua"><%= pro.name %></h4>
+					<div class="down-content">
+						
+						<a href="">
+						
+							
+						</a>
+						<h6>$<%= pro.price %></h6>
+		
+						<a  href="/add-cart.<%= pro._id %>" class="">BOOK NOW
+							
+						</a>
+						<ul class="stars">
+							<li><i class="fa fa-star"></i></li>
+							<li><i class="fa fa-star"></i></li>
+							<li><i class="fa fa-star"></i></li>
+							<li><i class="fa fa-star"></i></li>
+							<li><i class="fa fa-star"></i></li>
+						</ul>
+					</div>
+				
+				</div>
+				
+			</div>
+			<% }}})%>
+		</div>
+	</div>
+</div>
+<% })%>
+<!-- Footer -->
+
+<% include ../layout/footer.ejs %>

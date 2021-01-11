@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap"
+        rel="stylesheet">
+    <base href="http://localhost:3000/">
+    <title>Homestay Fpoly 2018</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="assets/css/fontawesome.css">
+   
+    <link rel="stylesheet" href="assets/css/owl.css"> 
+    <link rel="stylesheet" href="assets/css/stylefooter.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <link rel="stylesheet" href="assets/css/stylesr.css" />
+
+
+</head>
+
+<body>
+
+    <!-- ***** Preloader Start ***** -->
+    <div id="preloader">
+        <div class="jumper">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <!-- ***** Preloader End ***** -->
+
+
+    <!-- ***** Header Area Start ***** -->
+    <header class="header-area header-sticky">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="main-nav">
+                        <!-- ***** Logo Start ***** -->
+                        <a href="/" class="logo">
+                            <img src="assets/images/home.png" width="70px" height="50px" >
+                        </a>
+                        <!-- ***** Logo End ***** -->
+                        <!-- ***** Menu Start ***** -->
+                        <ul class="nav">
+                            <li class="scroll-to-section"><a href="/" class="active">Home</a></li>
+                            <li class="scroll-to-section"><a href="#chefs">Booking</a></li>
+                            <li class="scroll-to-section"><a href="/">Products</a></li>
+
+
+
+                            <li class="scroll-to-section"><a href="#menu">About</a></li>
+
+
+
+                            <%if (login) { %>
+                                <li class="submenu">
+                                    <a href="/users/logout">Logout</a>
+                                    <ul>
+                                        <li><a> Welcome </a>
+                                        </li>
+                                        <li><a href="/users/site/page/profile">Account</a></li>
+                                    </ul>
+                                    <% }else{ %>
+                                <li class="submenu"> <a href="/users/site/page/login"></i> Login</a>
+                                    <ul>
+                                        <li><a href="/users/site/page/login">Register</a></li>
+                                    </ul>
+                                </li>
+                                </li>
+                                <% } %>
+
+
+                                    <!-- <li class=""><a rel="sponsored" href="https://templatemo.com" target="_blank">External URL</a></li> -->
+                                    <li class="scroll-to-section"><a href="#reservation">Contact Us</a></li>
+
+                                    <div class="search-icon">
+                                        <i class="fa fa-search search-btn"></i>
+                                    </div>
+
+                                    <div class="search-overlay">
+                                    </div>
+                                    <div class="search-popup">
+                                        <form class="search-form" action="/search">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" name="search" placeholder="Search....">
+                                                <button type="submit" class="submit-btn"><i
+                                                        class="fa fa-search"></i></button>
+                                            </div>
+                                        </form>
+                                    </div>
+
+                        </ul>
+                        <a class='menu-trigger'>
+                            <span>Menu</span>
+                        </a>
+                        <!-- ***** Menu End ***** -->
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- ***** Header Area End ***** -->
+    <!-- ***** Main Banner Area Start ***** -->
+    <div id="top">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="left-content">
+                        <div class="inner-content">
+
+                            <h4>THE BEST HOMESTAY </h4>
+                            <div class="main-white-button scroll-to-section">
+                                <a href="">Book Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="main-banner header-text">
+                        <div class="Modern-Slider">
+                            <!-- Item -->
+                            <div class="item">
+                                <div class="img-fill">
+                                    <img src="assets/images/slide10.jpg" alt="">
+                                </div>
+                            </div>
+                            <!-- // Item -->
+                            <!-- Item -->
+                            <div class="item">
+                                <div class="img-fill">
+                                    <img src="assets/images/slide11.jpg" alt="">
+                                </div>
+                            </div>
+                            <!-- // Item -->
+                            <!-- Item -->
+                            <div class="item">
+                                <div class="img-fill">
+                                    <img src="assets/images/slide03.jpg" alt="">
+                                </div>
+                            </div>
+                            <!-- // Item -->
+                            <!-- Item -->
+                            <div class="item">
+                                <div class="img-fill">
+                                    <img src="assets/images/slide04.jpg" alt="">
+                                </div>
+                            </div>
+                            <!-- // Item -->
+                            <!-- Item -->
+                            <div class="item">
+                                <div class="img-fill">
+                                    <img src="assets/images/slide05.jpg" alt="">
+                                </div>
+                            </div>
+                            <!-- // Item -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
